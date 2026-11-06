@@ -1,0 +1,14 @@
+# Example: add dsh-skill-mcp-manager to a DSH profile's cordis.patch.yml.
+# Install the package into the profile first (see README):
+#   dsh plugin --profile web add dsh-skill-mcp-manager
+- insert:
+    - id: skill-mcp-manager
+      name: 'dsh-skill-mcp-manager'
+      config:
+        dataDir: ''        # empty = ~/.dsh/skill-mcp-manager (or $DSH_HOME/skill-mcp-manager)
+        profile: web       # profile whose cordis.patch.yml this plugin reconciles against
+        trialTimeoutMs: 30000
+        toolCallTimeoutMs: 60000
+        catalogDescriptionMaxLength: 500
+        toolDescriptionMaxLength: 150  # per-tool description truncation in the catalog
+        importNativeMcp: true  # import native dsh-mcp-client rows into the capability library (default on-demand) and take them over
